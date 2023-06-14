@@ -1,17 +1,13 @@
-from flask import Flask, session, request
+from flask import Flask, redirect, render_template, session, request
 
 
 app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return "<p> Hello, World!</p>"
+    return render_template("home.html")
 
-@app.route('/hello')
-def hello():
-    return 'Hello, World'
-
-
+    
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
